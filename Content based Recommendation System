@@ -1,0 +1,84 @@
+!wget -O moviedataset.zip https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/ML0101ENv3/labs/moviedataset.zip
+print('unziping ...')
+!unzip -o -j moviedataset.zip 
+
+#first lets get all the imports out of the way
+import pandas as pd
+#pandas is dataframe manipulation library
+from math import sqrt #we only need sqrt only here
+import numpy as np
+
+#read each file into their dataframe
+movies_df = pd.read_csv('movies.csv') #saving movies info in pandas dataframe ,,df =dataframe
+
+ratings_df =pd.read_csv("ratings.csv")#saving rating in pd df
+
+#Head is a function,gets first N rows of a dataframe,
+movies_df.head()
+
+movies_df['title'] = movies_df['title'].str.replace(" (\(\d{4}\))", "")
+
+##let's also split the values in the Genres column into a list of Genres to simplify future use. 
+##This can be achieved by applying Python's split string function on the correct column.
+##every genre is separated by | so simply call spli on |
+movies_df['genres'] = movies_df.genres.str.split('|')
+movies_df.head()
+
+movieswithgenre_df = movies_df.copy()
+
+for index ,row in movies_df.iterrows():
+    for genre in row['genres']:
+        movieswithgenre_df.at[index,genre] =1
+movieswithgenre_df = movieswithgenre_df.fillna(0)
+movieswithgenre_df.head()
+
+#content based filteringg
+
+#creatin inputuser
+
+userInput = [
+            {'title':'Breakfast Club, The', 'rating':5},
+            {'title':'Toy Story', 'rating':3.5},
+            {'title':'Jumanji', 'rating':2},
+            {'title':"Pulp Fiction", 'rating':5},
+            {'title':'Akira', 'rating':4.5}
+         ] 
+inputmovies = pd.DataFrame(userInput)
+inputmovies
+
+inputId = movies_df[movies_df['title'].isin(inputmovies['title'].tolist())] 
+##those movies which are in inputmovies df as 
+##well as aur dataset moviesdf
+inputmovies = pd.merge(inputId,inputmovies)
+inputmovies
+
+usermovies = movieswithgenre_df[movieswithgenre_df['title'].isin(inputmovies['title'].tolist())]
+usermovies
+
+usermovies =usermovies.reset_index(drop=True)
+userGenreTable = usermovies.drop('movieId', 1).drop('title', 1).drop('genres', 1).drop('year', 1)
+userGenreTable
+
+inputmovies['rating']
+
+## the input's reviews and multiplying them into the input's genre table and then summing up the resulting table by column
+userprofile = userGenreTable.transpose().dot(inputmovies['rating']) ##transpose used to make rows of genre labels
+userprofile
+
+##Let's start by extracting the genre table from the original dataframe:
+genretable = movieswithgenre_df.set_index(movieswithgenre_df['movieId'])
+
+genretable = genretable.drop('movieId',1).drop('title',1).drop('genres',1).drop('year',1)
+genretable.head()
+
+recommen =((genretable*userprofile).sum(axis=1))/(userprofile.sum()) ##divide by index sum of userprofile to get normalized 
+##avg value
+recommen.head()
+
+recommen = recommen.sort_values(ascending=False)#sorting descending wise to make high values appear first
+#Just a peek at the values
+recommen.head()
+
+#AND OUR FINAL RECOMMENDED MOVIES LIST WOULD BE GIVEN BY THE BELOW LINE OF CODE
+movies_df.loc[movies_df['movieId'].isin(recommen.head(20).keys())]
+###############################################END##########################################################
