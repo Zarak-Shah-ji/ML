@@ -1,4 +1,3 @@
-# Recommendation System
 # Movie Recommendation System
 
 Welcome to the Movie Recommendation System repository! This project features a compact content-based recommendation system developed using Python and machine learning techniques.
