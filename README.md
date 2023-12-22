@@ -8,7 +8,7 @@
 ![Twitter Follow](https://img.shields.io/twitter/follow/Zarak-Shah-ji?label=Twitter&style=social)
 
 
-# Movie Recommendation System 
+# Movie Recommendation System  
 
 Welcome to the Movie Recommendation System repository! This project features a compact content-based recommendation system developed using Python and machine learning techniques.
 
