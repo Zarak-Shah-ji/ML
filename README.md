@@ -15,7 +15,7 @@
 
 Welcome to the Movie Recommendation System repository! This project features a compact content-based recommendation system developed using Python and machine learning techniques.
 
-![Clustering Methods for RECOMZEN](https://medium.com/@zarak.shah.ji/unveiling-patterns-the-art-of-cluster-discovery-in-recommendation-systems-23fa5dd5a30d)
+(https://medium.com/@zarak.shah.ji/unveiling-patterns-the-art-of-cluster-discovery-in-recommendation-systems-23fa5dd5a30d)
 <br>
 ## Purpose
 
