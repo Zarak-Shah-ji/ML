@@ -12,11 +12,11 @@
 # Movie Recommendation System    
   
 
-<a href="(https://www.example.com](https://medium.com/@zarak.shah.ji/unveiling-patterns-the-art-of-cluster-discovery-in-recommendation-systems-23fa5dd5a30d)">Clustering Methods for RECOMZEN</a>
-<br>
+
 Welcome to the Movie Recommendation System repository! This project features a compact content-based recommendation system developed using Python and machine learning techniques.
 
-
+![Clustering Methods for RECOMZEN](https://medium.com/@zarak.shah.ji/unveiling-patterns-the-art-of-cluster-discovery-in-recommendation-systems-23fa5dd5a30d)
+<br>
 ## Purpose
 
 The Movie Recommendation System offers a simplified yet effective approach to providing personalized movie recommendations, similar to platforms like Netflix. By analyzing the content and genres of movies, this system aims to suggest films that align with users' preferences.
