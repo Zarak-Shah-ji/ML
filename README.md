@@ -12,7 +12,7 @@
 # Movie Recommendation System    
   
 
-![Clustering for RECOMZEN]([https://www.example.com](https://medium.com/@zarak.shah.ji/unveiling-patterns-the-art-of-cluster-discovery-in-recommendation-systems-23fa5dd5a30d))
+<a href="[https://www.example.com](https://www.example.com](https://medium.com/@zarak.shah.ji/unveiling-patterns-the-art-of-cluster-discovery-in-recommendation-systems-23fa5dd5a30d)">Clustering Methods for RECOMZEN</a>
 <br>
 Welcome to the Movie Recommendation System repository! This project features a compact content-based recommendation system developed using Python and machine learning techniques.
 
