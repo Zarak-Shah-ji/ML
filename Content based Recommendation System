@@ -73,7 +73,7 @@ genretable = movieswithgenre_df.set_index(movieswithgenre_df['movieId'])
 genretable = genretable.drop('movieId',1).drop('title',1).drop('genres',1).drop('year',1)
 genretable.head()
 
-recommen =((genretable*userprofile).sum(axis=1))/(userprofile.sum()) ##divide by index sum of userprofile to get normalized 
+recommen = ((genretable*userprofile).sum(axis=1))/(userprofile.sum()) ##divide by index sum of userprofile to get normalized 
 ##avg value
 recommen.head()
 
