@@ -2,7 +2,8 @@
 print('unziping ...')
 !unzip -o -j moviedataset.zip 
 
-#first lets get all the imports out of the way
+#first lets get all the imports out of the way 
+
 import pandas as pd
 #pandas is dataframe manipulation library
 from math import sqrt #we only need sqrt only here
@@ -11,7 +12,7 @@ import numpy as np
 #read each file into their dataframe
 movies_df = pd.read_csv('movies.csv') #saving movies info in pandas dataframe ,,df =dataframe
 
-ratings_df =pd.read_csv("ratings.csv")#saving rating in pd df
+ratings_df = pd.read_csv("ratings.csv")#saving rating in pd df
 
 #Head is a function,gets first N rows of a dataframe,
 movies_df.head()
@@ -30,6 +31,7 @@ for index ,row in movies_df.iterrows():
     for genre in row['genres']:
         movieswithgenre_df.at[index,genre] =1
 movieswithgenre_df = movieswithgenre_df.fillna(0)
+
 movieswithgenre_df.head()
 
 #content based filteringg
