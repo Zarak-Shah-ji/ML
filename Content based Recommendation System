@@ -28,6 +28,7 @@ movies_df.head()
 movieswithgenre_df = movies_df.copy()
 
 for index ,row in movies_df.iterrows():
+
     for genre in row['genres']:
         movieswithgenre_df.at[index,genre] =1
 movieswithgenre_df = movieswithgenre_df.fillna(0)
