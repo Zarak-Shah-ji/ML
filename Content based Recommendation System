@@ -20,7 +20,7 @@ movies_df.head()
 movies_df['title'] = movies_df['title'].str.replace(" (\(\d{4}\))", "")
 
 ##let's also split the values in the Genres column into a list of Genres to simplify future use. 
-##This can be achieved by applying Python's split string function on the correct column.
+##This can be achieved by applying Python's split string function on the correct column. 
 ##every genre is separated by | so simply call spli on |
 movies_df['genres'] = movies_df.genres.str.split('|')
 movies_df.head()
